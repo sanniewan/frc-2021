@@ -34,7 +34,7 @@ public class FindCell extends CommandBase {
       Robot.drivetrain.setLeftMotor(-Constants.CERTAIN_SPEED);
       Robot.drivetrain.setRightMotor(Constants.CERTAIN_SPEED);
 
-    } else {
+    } else { //previousAngle < 0
       Robot.drivetrain.setLeftMotor(Constants.CERTAIN_SPEED);
       Robot.drivetrain.setRightMotor(-Constants.CERTAIN_SPEED);
     }

@@ -29,10 +29,10 @@ public class MoveToCell extends CommandBase {
     if (Math.abs(horizOffset) < Constants.MIN_HORIZ_OFFSET) {
       Robot.drivetrain.setLeftMotor(baseSpeed);
       Robot.drivetrain.setRightMotor(-baseSpeed);
-    } else if (horizOffset < 0) {
+    } else if (horizOffset < 0) { //turn left
       Robot.drivetrain.setLeftMotor(baseSpeed + horizOffset * Constants.KTURNSPEED);
       Robot.drivetrain.setRightMotor(-(baseSpeed - horizOffset * Constants.KTURNSPEED));
-    } else {
+    } else { // turn right
       Robot.drivetrain.setRightMotor(-(baseSpeed + horizOffset * Constants.KTURNSPEED));
       Robot.drivetrain.setLeftMotor(baseSpeed - horizOffset * Constants.KTURNSPEED);
     }

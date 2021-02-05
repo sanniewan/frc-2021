@@ -44,14 +44,10 @@ public class FindMiddleCell extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (!Robot.limelight.tv)
-      return false;
-    else {
-      // check for jump
-      return Robot.limelight.deltaTx > Constants.JUMP_SIGNAL;
+    return Robot.limelight.tv && (Robot.limelight.deltaTx > Constants.JUMP_SIGNAL);
 
-      // if jump, return true
-      // if no jump, return false (continue the command)
-    }
+    // if jump, return true
+    // if no jump, return false (continue the command)
+
   }
 }
