@@ -34,6 +34,7 @@ public class RobotContainer {
         Units.feetToMeters(2.0), Units.feetToMeters(2.0));
     config.setKinematics(Robot.drivetrain.getKinematics());
 
+<<<<<<< HEAD
     RamseteCommand Command = new RamseteCommand(
         trajectory,
         Robot.drivetrain::getPose,
@@ -45,6 +46,22 @@ public class RobotContainer {
         Robot.drivetrain.getRightPIDController(),
         Robot.drivetrain::setOutputVolts,
         Robot.drivetrain
+=======
+  public static Command getAutonomousCommand(Trajectory trajectory) {
+    TrajectoryConfig config = new TrajectoryConfig(Units.feetToMeters(2.0), Units.feetToMeters(2.0));
+    config.setKinematics(Robot.drivetrain.getKinematics());
+
+    RamseteCommand Command = new RamseteCommand(
+      trajectory, 
+      Robot.drivetrain::getPose, 
+      new RamseteController(2, .7),
+      Robot.drivetrain.getFeedforward(), 
+      Robot.drivetrain.getKinematics(), 
+      Robot.drivetrain::getSpeeds,
+      Robot.drivetrain.getLeftPIDController(), 
+      Robot.drivetrain.getRightPIDController(),
+      Robot.drivetrain::setOutputVolts, Robot.drivetrain
+>>>>>>> c0bf1604ef057089877fd5f97146266144e7e4fd
     );
 
     return Command.andThen(() -> Robot.drivetrain.setOutputVolts(0, 0));
@@ -53,7 +70,10 @@ public class RobotContainer {
   public void reset() {
     Robot.drivetrain.reset();
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> c0bf1604ef057089877fd5f97146266144e7e4fd
 
   /**
    * Use this method to define your button->command mappings. Buttons can be

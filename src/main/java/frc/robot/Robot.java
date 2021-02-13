@@ -63,6 +63,8 @@ public class Robot extends TimedRobot {
   /** This function is called once each time the robot enters Disabled mode. */
   @Override
   public void disabledInit() {
+    drivetrain.setBrake(false);
+
   }
 
   @Override
@@ -78,6 +80,12 @@ public class Robot extends TimedRobot {
 
     RobotContainer.getAutonomousCommand(TrajectoryFactory.generateTrajectory("autonav")).schedule();
     drivetrain.resetEncoder();
+    drivetrain.setBrake(true);
+  }
+
+  @Override
+  public void autonomousPeriodic() {
+    CommandScheduler.getInstance().run();
   }
 
   @Override
@@ -88,6 +96,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     drivetrain.resetEncoder();
+    drivetrain.setBrake(true);
     arcadeDrive = new ArcadeDrive();
     arcadeDrive.schedule();
   }
